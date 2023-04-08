@@ -1,5 +1,6 @@
 from parsel import Selector
 import requests
+import re
 
 def get_opponents_with_info(html):
     opoonents =get_opponents(html)
@@ -50,6 +51,7 @@ def get_fighter_info(html):
         'nickname':None,
         'nationality':None,
         'height':None,
+        'weight':None,
     }
     
     fighter_info['name']=trs[0].xpath('.//span/text()').get()
@@ -66,12 +68,23 @@ def get_fighter_info(html):
         elif key.startswith('Nationality') :
              fighter_info['nationality']=value
         elif key.startswith('Height') :
-             parts=value.split('(')
-             imp=parts[0].strip(' ')
-             metric = parts[1].strip(')')
+             match= re.search('(?P<imperial>\d.ft \d{1,2}.in) \((?P<metric>[\d.]+.c?m)\)',value)
+             if match is None:
+                 print("match failed height",value)
+                 continue
              fighter_info['height']= {
-                 'imperial' :imp,
-                 'metric' : metric
+                 'imperial' :match.group('imperial'),
+                 'metric' : match.group('metric'),
+             }
+        elif key.startswith('Weight') :
+             match= re.search('(?P<imperial>\d{1,3}.lb) \((?P<metric>\d{1,3}.kg); (?P<eng>[\d.]+.st(?: \d+.lb)?)\)',value)
+             if match is None:
+                 print("match failed height",value)
+                 continue
+             fighter_info['weight']= {
+                 'imperial' :match.group('imperial'),
+                 'metric' : match.group('metric'),
+                 'eng' : match.group('eng')
              }
              
          

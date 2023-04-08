@@ -1,7 +1,7 @@
 import requests
 import sys
 # from bs_opponents import get_opponents
-from scraping.wiki_fighters import get_opponents,get_fighter_info,get_opponents_with_info
+from scraping.wiki.wiki_fighters import get_opponents,get_fighter_info,get_opponents_with_info
 # from bs_select_opponents import get_opponents
 import json
 

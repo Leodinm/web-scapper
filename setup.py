@@ -10,7 +10,9 @@ setup(
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'wiki_scrape = scraping.main:defaught',
+            'wiki_scrape = scraping.wiki.main:defaught',
+            'shop_scrape = scraping.shop.main:defaught',
+            'medium_scrape = scraping.medium.main:defaught',
         ]
     }
 )
