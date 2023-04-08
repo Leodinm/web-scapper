@@ -1,1 +1,0 @@
-wiki_scrape  ops+info  https://en.wikipedia.org/wiki/Khabib_Nurmagomedov  opponents_with_info 
