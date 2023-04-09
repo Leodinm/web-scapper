@@ -32,9 +32,5 @@ def defaught(args):
 
 
 
-   opponents_json= json.dumps(results,ensure_ascii=False)
-   # print(len(tables))
-   # print(response.text)
-   with open(f'{output}.json','w',encoding='utf-8') as f:
-      f.write(opponents_json.encode('ascii','ignore').decode('utf-8'))
+   return results
       
