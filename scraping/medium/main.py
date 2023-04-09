@@ -20,8 +20,8 @@ def create_query(page=0):
 
 
 
-def defaught():
-    page=int(sys.argv[1])
+def defaught(args):
+    page=int(args[0])
     results=[]
     for attemp in range(0,page):
 

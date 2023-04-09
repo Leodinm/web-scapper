@@ -6,14 +6,14 @@ from scraping.wiki.wiki_fighters import get_opponents,get_fighter_info,get_oppon
 import json
 
 
-def defaught():
+def defaught(args):
 
-   if len(sys.argv) ==1 :
+   if len(args) ==0 :
       raise Exception("ooops you missing argv ")
 
-   target = sys.argv[1]
-   url = sys.argv[2]
-   output = sys.argv[3]
+   target = args[0]
+   url = args[1]
+   output = args[2]
    handler =None
 
    if target =='ops':

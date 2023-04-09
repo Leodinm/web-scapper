@@ -8,11 +8,10 @@ setup(
     name='mypackage',
     version='0.0.1',
     install_requires=requirements,
+    py_modules=["scraping"],
     entry_points={
         'console_scripts': [
-            'wiki_scrape = scraping.wiki.main:defaught',
-            'shop_scrape = scraping.shop.main:defaught',
-            'medium_scrape = scraping.medium.main:defaught',
+            'scrape = scraping.main:defaught',
         ]
     }
 )
