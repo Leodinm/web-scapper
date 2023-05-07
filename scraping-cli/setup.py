@@ -22,6 +22,7 @@ setup(
     entry_points={
         'console_scripts': [
             'scrape = main:defaught',
+            'scrape-import = main:import_scraper',
         ]
     }
 )
